@@ -16,9 +16,10 @@
         <div class="typeFormWrapper mb-20">
           <input id="typeForm" type="text" class="typeForm" v-model="typeBox" />
         </div>
-        <!-- <div class="gaugeWrapper mb-20">
+        
+        <div class="gaugeWrapper mb-20">
           <div class="gauge" v-bind:style="styleObjest"></div>
-        </div> -->
+        </div>
         <div>{{ current_question_counts }}/{{ questions_counts }}</div>
       </div>
     </div>
@@ -36,19 +37,20 @@ export default {
       typeBox: "",
       current_question_counts: 0,
       questions_counts: 0,
+      gauge:""
     };
   },
   // computed: {
   //   styleObject: function () {
-  //     width = 20 * this.current_question_counts + "%"
+  //    Width = 20 * this.current_question_counts + "%"
   //     if (this.current_question_counts == 5) {
-  //       color="#03a9f4"
+  //       Color="#03a9f4"
   //       } else {
-  //         color="orange"
+  //       Color="orange"
   //     }
   //     return{
   //       'width':width,
-  //       'background-color':color
+  //       'backgroundColor':color
   //     }
   //   }
   // },
