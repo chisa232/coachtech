@@ -7,7 +7,7 @@
       <div class="title">
         <p>ホーム</p>
       </div>
-      <Message />
+      <Message/>
     </div>
   </div>
 </template>

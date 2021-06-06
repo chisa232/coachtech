@@ -23,7 +23,7 @@
 import ShareMessage from "../components/ShareMessage";
 
 export default {
-  component: {
+  components: {
     ShareMessage,
   },
 };
