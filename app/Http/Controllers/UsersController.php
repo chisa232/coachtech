@@ -16,7 +16,7 @@ class UsersController extends Controller
                 'data'=>$items
             ],200);
         }else{
-            return response()->json(['status'=>'not found',404]);
+            return response()->json(['status'=>'not found'],404);
         }
     }
     public function put(Request $request)

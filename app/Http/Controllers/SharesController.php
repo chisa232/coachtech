@@ -104,7 +104,12 @@ class SharesController extends Controller
         $item=Share::where('id',$share->id)->delete();
         if($item){
             return response()->json(
-                ['message'=>'Share not found'],
+                ['message'=>'Share deleted successfully'],
+                200
+            );
+        }else{
+            return response() ->json(
+                ['message' => 'Share not found'],
                 404
             );
         }

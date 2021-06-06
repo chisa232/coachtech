@@ -17,7 +17,7 @@ class LikesController extends Controller
             'created_at' => $now,
             'updated_at' => $now,
         ];
-        DB::table('kikes')->insert($param);
+        DB::table('likes')->insert($param);
         return response()->json([
             'message'=>'Like created successfully',
             'data'=>$param
