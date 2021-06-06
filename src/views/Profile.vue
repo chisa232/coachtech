@@ -14,7 +14,7 @@
             <button>変更する</button>
           </div>
         </div>
-        <p class="text" v-if="action">{{ profile }}</p>
+        <p class="text" v-if="active">{{ profile }}</p>
         <input type="text" v-model="profile" v-else />
       </div>
       <Message />
@@ -25,14 +25,30 @@
 <script>
 import SideNavi from "../components/SideNavi";
 import Message from "../components/Message";
-
+import axios from "axios";
 export default {
   data() {
     return {
       active: true,
-      name: "太郎",
-      profile: "私は太郎です",
+      name: this.$store.state.user.name,
+      profile: this.$store.state.user.profile,
     };
+  },
+  methods: {
+    edit() {
+      if (!this.active) {
+        axios
+          .put("https://damp-thicket-24544.herokuapp.com/api/user", {
+            email: this.$store.state.user.email,
+            profile: this.profile,
+          })
+          .then((response) => {
+            this.$store.commit("changeUserData", this.profile);
+            console.log(response);
+          });
+      }
+      this.active = !this.active;
+    },
   },
   components: {
     SideNavi,
@@ -40,7 +56,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 .left {
@@ -54,12 +69,12 @@ export default {
 .flex {
   display: flex;
 }
-.profile{
+.profile {
   padding: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: solid 1px white;
   border-left: 1px solid white;
 }
-.profile-name{
+.profile-name {
   font-size: 24px;
 }
 .title {
@@ -71,11 +86,11 @@ export default {
   font-size: 20px;
   font-weight: bold;
 }
-.flex-profile{
+.flex-profile {
   display: flex;
   justify-content: space-between;
 }
-button{
+button {
   width: 100px;
   text-align: center;
   padding: 8px 0 10px;
@@ -84,5 +99,8 @@ button{
   border-radius: 25px;
   display: block;
   margin: 0 0 0 auto;
+}
+input {
+  color: black;
 }
 </style>
