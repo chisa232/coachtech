@@ -10,7 +10,7 @@
         <img class="icon" src="../assets/img/profile.png" alt="/" />
         <p>プロフィール</p>
       </div>
-      <div class="flex icon-field" @click="$router.push('logout')">
+      <div class="flex icon-field" @click="$store.dispatch('logout')">
         <img class="icon" src="../assets/img/logout.png" alt="/" />
         <p>ログアウト</p>
       </div>
